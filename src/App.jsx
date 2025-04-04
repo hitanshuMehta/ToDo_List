@@ -1,10 +1,9 @@
-import { useState } from "react";
+import React from 'react'
 import "./App.css";
 import ToDo from "./ToDo";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>

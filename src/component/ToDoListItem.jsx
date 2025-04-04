@@ -18,5 +18,3 @@ const ToDoListItem = ({ data, handleDeleteTodo, handleCheckTodo, checked }) => {
 };
 
 export default ToDoListItem;
-
-

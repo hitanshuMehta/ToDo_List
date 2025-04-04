@@ -11,13 +11,11 @@ const ToDoDate = () => {
       SetdateTime(`${formattedDate} - ${formattedTime}`);
     };
 
-    // Call immediately
     updateDateTime();
 
-    // Then start interval
     const interval = setInterval(updateDateTime, 1000);
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval);
   }, []);
 
   return <h2 className="date-time">{dateTime}</h2>;

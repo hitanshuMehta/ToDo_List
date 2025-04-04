@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { toast } from "react-toastify";
 import ToDoForm from "./component/ToDoForm";
@@ -9,7 +9,7 @@ const ToDo = () => {
   const [Task, SetTask] = useState(() => {
     const rawToDo = localStorage.getItem("reactToDo");
     if (!rawToDo) {
-      return []; 
+      return [];
     }
     return JSON.parse(rawToDo);
   });
@@ -19,7 +19,7 @@ const ToDo = () => {
 
     if (!content) {
       toast.error("Enter the Task First", {
-        autoClose: 1000, // Closes in 3 seconds
+        autoClose: 1000,
       });
       return;
     }
@@ -30,29 +30,23 @@ const ToDo = () => {
 
     if (ifToDoContentMatch) {
       toast.error("Task Already Exist", {
-        autoClose: 1000, // Closes in 3 seconds
+        autoClose: 1000,
       });
-      // setInputValue("");
+
       return;
     }
 
     SetTask((prevTask) => [...prevTask, { id, content, checked }]);
     toast.success("Task added Successfully", {
-      autoClose: 1000, // Closes in 3 seconds
+      autoClose: 1000,
     });
-    
-    // console.log(Task);
   };
 
   localStorage.setItem("reactToDo", JSON.stringify(Task));
 
   const handleDeleteTodo = (value) => {
-    // console.log(Task);
-    // console.log(value);
-
-    // ✅ Corrected filter function
     const updatedTask = Task.filter((curTask) => curTask.content !== value);
-    // console.log(updatedTask);
+
     SetTask(updatedTask);
   };
 
