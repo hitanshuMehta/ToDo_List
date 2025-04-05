@@ -5,7 +5,8 @@ import { ImCheckboxUnchecked } from "react-icons/im";
 
 const ToDoListItem = ({ data, handleDeleteTodo, handleCheckTodo, checked }) => {
   return (
-    <li className="todo-item">
+   
+      <li className="todo-item">
       <span className={checked ? "checkList" : "notCheckList"}>{data}</span>
       <button className="check-btn" onClick={() => handleCheckTodo(data)}>
         {checked ? <FaRegCheckCircle /> : <ImCheckboxUnchecked />}
@@ -14,6 +15,7 @@ const ToDoListItem = ({ data, handleDeleteTodo, handleCheckTodo, checked }) => {
         <MdDelete />
       </button>
     </li>
+    
   );
 };
 

@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
 const ToDoForm = ({ onAddTodo }) => {
-  const [inputValue, setInputValue] = useState({});
+  const [inputValue, setInputValue] = useState({
+    id: "",
+    content: "",
+    checked: false,
+  });
 
   const handleInputChange = (value) => {
     setInputValue({ id: value, content: value, checked: false });

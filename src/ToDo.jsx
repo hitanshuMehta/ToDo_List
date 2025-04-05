@@ -18,9 +18,7 @@ const ToDo = () => {
     const { id, content, checked } = inputValue;
 
     if (!content) {
-      toast.error("Enter the Task First", {
-        autoClose: 1000,
-      });
+      toast.error("Enter the Task First");
       return;
     }
 
@@ -29,39 +27,47 @@ const ToDo = () => {
     );
 
     if (ifToDoContentMatch) {
-      toast.error("Task Already Exist", {
-        autoClose: 1000,
-      });
-
+      toast.error("Task Already Exist");
       return;
     }
 
     SetTask((prevTask) => [...prevTask, { id, content, checked }]);
-    toast.success("Task added Successfully", {
-      autoClose: 1000,
-    });
+    toast.success("Task added Successfully");
   };
 
   localStorage.setItem("reactToDo", JSON.stringify(Task));
 
   const handleDeleteTodo = (value) => {
     const updatedTask = Task.filter((curTask) => curTask.content !== value);
-
     SetTask(updatedTask);
+    toast.success("Task Deleted");
   };
 
   const handleClearAll = () => {
+    if (Task.length === 0) {
+      toast.error("No tasks to clear!");
+      return;
+    }
+
     SetTask([]);
+    toast.success("All tasks cleared!");
   };
 
-  const handleCheckTodo = (content) => {
+  const handleCheckTodo = (id) => {
     const updateTask = Task.map((curTask) => {
-      if (curTask.content === content) {
-        return { ...curTask, checked: !curTask.checked };
+      if (curTask.id === id) {
+        const updated = { ...curTask, checked: !curTask.checked };
+
+        toast.success(
+          updated.checked ? "Task Completed!" : "Task not Completed!"
+        );
+
+        return updated;
       } else {
         return curTask;
       }
     });
+
     SetTask(updateTask);
   };
 

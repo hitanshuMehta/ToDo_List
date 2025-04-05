@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 3%;
+    padding-top: 7%;
     background-image: linear-gradient(100deg, #001214, #001f29);
     color: white;
     transition: 0.3s linear;
@@ -137,6 +137,8 @@
   li span {
     max-width: 20rem;
     color: #1c2833;
+    font-size:xx-large;
+
   }
   
   .check-btn,
@@ -180,10 +182,10 @@
     background-color: #8d1407;
   }
   
-  /* Responsive Design */
+ 
   @media (max-width: 768px) {
     .todo-container {
-      padding-top: 5%;
+      padding-top: 7%;
     }
   
     section h1 {
@@ -217,6 +219,7 @@
       max-width: 90%;
       padding: 1rem;
       grid-template-columns: 1fr 0.2fr 0.2fr;
+      border-radius: 30px;
     }
   
     .check-btn, .delete-btn {
@@ -227,6 +230,10 @@
   }
   
   @media (max-width: 480px) {
+    .todo-container {
+      padding-top: 15%;
+    }
+
     .header {
       font-size: 2.5rem;
     }
@@ -243,6 +250,7 @@
       font-size: 14px;
       grid-template-columns: 1fr 0.2fr 0.2fr;
       padding: 0.8rem;
+      border-radius: 10px;
     }
   
     .check-btn, .delete-btn {
@@ -251,3 +259,19 @@
       height: 2rem;
     }
   }
+
+
+  .custom-toast {
+    width: fit-content !important;
+    min-width: 200px;
+    max-width: 300px;
+    margin: auto !important;
+    text-align: center;
+    font-size: 1.4rem;
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    padding: 10px 20px; 
+  }
+  
